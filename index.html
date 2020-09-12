@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Population Graph</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<!-- <style>
+    .container {
+        width: 50%;
+        height: 50%;
+    }
+</style> -->
+<body>
+
+    <!-- <button id="renderBtn">
+        Render
+    </button> -->
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="slidecontainer">
+        <input type="range" min="0" max="5" value="0.5" step="0.01" class="slider" id="kSlider">
+        <p id='demo'></p>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="0" max="1" value="0.5" step="0.005" class="slider" id="x0Slider">
+        <p id='x0text'></p>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="5" max="200" value="10" step="1" class="slider" id="nPSlider">
+        <p id='nPtext'></p>
+    </div>
+      <script>
+        var slider = document.getElementById("kSlider");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value; // Display the default slider value
+      
+          // Update the current slider value (each time you drag the slider handle)
+          slider.oninput = function() {
+          output.innerHTML = 'K: ' + this.value;
+          k = this.value;
+          generatePoints();
+          }
+          var x0slider = document.getElementById("x0Slider");
+        var x0output = document.getElementById("x0text");
+        x0output.innerHTML = x0slider.value; // Display the default slider value
+      
+          // Update the current slider value (each time you drag the slider handle)
+          x0slider.oninput = function() {
+          x0output.innerHTML = 'X0: ' + this.value;
+          x0 = this.value;
+          generatePoints();
+          }
+          var nPslider = document.getElementById("nPSlider");
+        var nPoutput = document.getElementById("nPtext");
+        nPoutput.innerHTML = nPslider.value; // Display the default slider value
+      
+          // Update the current slider value (each time you drag the slider handle)
+          nPslider.oninput = function() {
+          nPoutput.innerHTML = 'Number of points: ' + this.value;
+          numberOfPoints = this.value;
+          generatePoints();
+          }
+      </script>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="main.js"></script>
+
+</html>
